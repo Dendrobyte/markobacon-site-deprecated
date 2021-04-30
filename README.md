@@ -1,3 +1,9 @@
+# Portfolio Site - Mark Bacon
+
+Hi there! This is a repository for the react files of my site, which you can access at [http://www.markobacon.com](http://www.markobacon.com).
+
+I'm leaving the getting started stuff below bc I'll inevitably need it.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
