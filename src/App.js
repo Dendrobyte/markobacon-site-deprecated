@@ -23,6 +23,10 @@ function App() {
               <a href="http://www.github.com/dendrobyte">Dendrobyte</a>
             </li>
             <li>
+              For my "real life" academic and work credentials, check out my{" "}
+              <a href="https://www.linkedin.com/in/mark-bacon-23275616a/">LinkedIn</a> page
+            </li>
+            <li>
               I make weekly{" "}
               <a href="http://www.youtube.com/markbacon78">YouTube Videos</a> on
               topics such as productivity, typing, and more!
