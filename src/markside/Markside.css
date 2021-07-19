@@ -1,0 +1,166 @@
+/* Ordered as elements are ordered top to bottom, main page to components */
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #0A0A0A;
+}
+/* -- All main page items -- */
+
+.homeTopBar {
+    background-color: #0A0A0A;
+    color: #EEEEEE;
+    width: 100%;
+    height: 40px;
+    display: inline-block;
+    padding: 10px;
+    margin: 0px;
+    box-shadow: 0px 0px 20px 2px #0a0a0a;
+}
+
+.homeTopBar:hover {
+    color: #AA0600;
+    cursor: pointer;
+}
+
+.homeTopBarArrow {
+    display: inline;
+    font-size: 40px;
+    float: left;
+}
+
+.homeTopBarText {
+    font-size: 18px;
+}
+
+.homeHeader {
+    background-color: #AA0600;
+    text-align: center;
+    color: #EEEEEE;
+    margin: 0px;
+    padding: 20px;
+    /* box-shadow: inset 0px 0px 20px 2px #0A0A0A; */
+}
+
+.marksideText {
+    font-size: 84px;
+    font-weight: 400;
+    margin: 0px;
+}
+
+.marksideSubtext {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.homeBody {
+    background-color: #0A0A0A;
+    box-shadow: 0px 0px 20px 2px #0a0a0a;
+}
+
+/* -- Main column styles -- */
+
+.mainColumn {
+    width: 70%;
+    float: left;
+    height: 100%;
+    /* background-color: azure; */
+    padding: 0px;
+    margin: 0px;
+}
+
+.mainColumnNavbar {
+    color: #EEEEEE;
+    margin: 15px;
+    text-align: center;
+}
+
+.selectedNavItem {
+    color: #EEEEEE;
+    display: inline;
+    font-size: 28px;
+}
+
+.unselectedNavItem{
+    color: #AFAFAF;
+    display: inline;
+    font-size: 24px;
+}
+
+.mainColumnBody {
+    margin-top: 10px;
+    padding: 0px;
+}
+
+/* -- Secondary column styles -- */
+.secondaryColumn {
+    width: 25%;
+    float: right;
+    height: 100%;
+    margin-right: 20px;
+    /* position: fixed; */
+    right: 0;
+}
+
+.secondaryColumnHeader {
+    text-align: center;
+}
+
+.secondaryColumnHeaderText {
+    font-size: 28px;
+    color: #EEEEEE;
+    margin-bottom: 20px;
+}
+
+/* -- All BlogPost items -- */
+
+.blogPostContainer {
+    background-color: #232323;
+    padding: 20px;
+    margin-top: 0px;
+    color: #EEEEEE;
+    margin: 10px 20px;
+    /* box-shadow: -3px 3px 0px 0px #AFAFAF; */
+}
+
+.blogPostTitle {
+    font-size: 32px;
+    font-weight: 600;
+    display: inline;
+    margin-right: 0px;
+}
+
+.blogPostTags {
+    color: #AFAFAF;
+    font-size: 18px;
+    display: inline;
+}
+
+.blogPostTimestamp {
+    color: #AFAFAF;
+    display: block;
+    padding: 5px 0px;
+    font-size: 16px;
+}
+
+.blogPostContent {
+    display: block;
+    font-size: 16px;
+}
+
+.blogPostExpand {
+    color: #AA0600;
+    display: block;
+    text-align: right;
+    font-size: 16px;
+}
+
+.blogPostExpand:hover {
+    color: #A54441;
+    cursor: pointer;
+    display: block;
+    text-align: right;
+    font-size: 16px;
+}
