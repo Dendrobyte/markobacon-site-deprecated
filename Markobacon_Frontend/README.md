@@ -1,10 +1,18 @@
-# Portfolio Site - Mark Bacon
+# Portfolio Site - Mark Bacon Front End
 
-Hi there! This is a repository for the react files of my site, which you can access at [http://www.markobacon.com](http://www.markobacon.com).
+Welcome... TO THE FRONT END! \o/
 
 I'm leaving the getting started stuff below bc I'll inevitably need it.
 
-# Getting Started with Create React App
+## How Does it Work?
+
+It's a pretty generic react app, honestly. The files you currently see on the [main site](https://www.markobacon.com/) are built static files of this very front-end that then talk to the back-end (in some cases).
+
+## Running / Testing
+
+See default react app stuff below
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

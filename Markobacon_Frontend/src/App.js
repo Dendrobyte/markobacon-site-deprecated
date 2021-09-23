@@ -8,10 +8,10 @@ function App() {
         <img src={profPic} className="profPic" alt="Mark Headshot"></img>
         <p>Hi there!</p>
         <p className="infoText">
-          My name's Mark. I'll be putting this site together over the summer and
-          have <b>zero interest in anyone offering site building jobs.</b>
-          <br></br>Not sure who's got their eyes peeled on WHOIS or whatever,
-          but please stop emailing me.
+          My name's Mark. I'm currently wrapping up the Markside blog page and will be making this page look a little more... exciting... as the year wraps up.
+        </p>
+        <p className="infoText">
+          Feel free to check out the <a href="https://github.com/Dendrobyte/markobacon-site">GitHub repository</a> that the site is public on if you want to see how things work and whatnot.
         </p>
         <div class="projContainer">
           <p className="projects">
