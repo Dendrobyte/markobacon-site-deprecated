@@ -1,0 +1,19 @@
+# For zero reason do you need to touch this. It's here because I keep deleting/uploading files
+# and I don't want to lose it.
+
+# SSL Cert
+RewriteEngine On
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://www.markobacon.com/$1 [R=301,L]
+
+# Reroute to index if there's a 404, which thus allows React routes to 'trigger'
+<IfModule mod_rewrite.c>
+
+  RewriteEngine on
+  RewriteBase /
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+
+</IfModule>
