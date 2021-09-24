@@ -1,5 +1,5 @@
 import MainPage from './MainPage.js';
-import MarksideHome from './markside/MarksideHome.js';
+import MarksideHome from './MarksideComponents/MarksideHome.js';
 import React from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 

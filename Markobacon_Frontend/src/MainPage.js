@@ -2,6 +2,7 @@ import profPic from "./profPic.png";
 import "./MainPage.css";
 
 function MainPage() {
+  console.log("oh snap, the page has loaded!");
   return (
     <div className="App">
       <header className="App-header">
@@ -10,7 +11,7 @@ function MainPage() {
         <p className="infoText">
           My name's Mark. I do stuff and things (like the projects you see below!) and attempt to document them in some ways. While you're here, check out <a href ="/markside">my blog!</a>
         </p>
-        <div class="projContainer">
+        <div className="projContainer">
           <p className="projects">
             While you're here, feel free to check out some of my projects!
           </p>
