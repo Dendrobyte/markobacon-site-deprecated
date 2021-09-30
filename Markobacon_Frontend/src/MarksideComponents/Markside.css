@@ -115,6 +115,20 @@ body {
     margin-bottom: 20px;
 }
 
+.marksideLogin {
+    width: 80%;
+    height: 32px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+}
+
+.marksideLoginButton {
+    width: 80%;
+    height: 32px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+}
+
 /* -- All BlogPost items -- */
 
 .blogPostContainer {

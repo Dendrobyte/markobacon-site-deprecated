@@ -1,4 +1,6 @@
+import { useState, useEffect } from 'react';
 import { ArrowLeftShort } from 'react-bootstrap-icons';
+import Button from 'react-bootstrap/Button'
 import MainColumnContent from './MainColumnContent.js';
 import SecondaryColumnContent from './SecondaryColumnContent.js';
 import './Markside.css';
@@ -7,6 +9,19 @@ import './Markside.css';
 let tempVar = 'latestPosts';
 
 function MarksideHome() {
+
+    // Ensure username and password fields are somewhat filled in, at least
+    const [buttonDisabled, setButtonDisabled] = useState(true); 
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    useEffect(() => {
+        setButtonDisabled(username === '' || password === '');
+    }, [username, password])
+
+    const handleLoginSubmit = (event) => {
+        event.preventDefault();
+    }    
+
     return (
         <>
         <body>
@@ -36,6 +51,31 @@ function MarksideHome() {
                     </div>
                 </div>
                 <div className="secondaryColumn">
+                    <div className="secondaryColumnHeader">
+                        <p className="secondaryColumnHeaderText">Quick Login</p>
+                        <input
+                            type="textarea"
+                            name="username"
+                            placeholder="Username"
+                            value={username}
+                            onChange={(val) => setUsername(val.target.value)}
+                            className="marksideLogin"
+                        ></input>
+                        <input
+                            type="textarea"
+                            name="username"
+                            placeholder="Password"
+                            value={password}
+                            onChange={(val) => setPassword(val.target.value)}
+                            className="marksideLogin"
+                            onKeyPress={(event) => {
+                                if(event.key === 'Enter'){
+                                    handleLoginSubmit(event)
+                                }
+                            }}
+                        ></input>
+                        <Button as="input" type="button" value="Submit" className="marksideLoginButton" disabled={buttonDisabled} onClick={handleLoginSubmit} />
+                    </div>
                     <div className="secondaryColumnHeader">
                         <p className="secondaryColumnHeaderText">Tweets @Mobkinz78</p>
                     </div>

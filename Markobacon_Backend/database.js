@@ -9,11 +9,17 @@ const Post = new mongoose.Schema({
     archive: Boolean
 })
 
+const Login = new mongoose.Schema({
+    username: String,
+    password: String // Will be hashed, duh :)
+})
+
 // Model(s)
 mongoose.model('Post', Post);
+mongoose.model('Login', Login)
 
 // Connect to the database
-const uri = 'mongodb+srv://${process.env.URI_USER}:${process.env.URI_PASS}@markside.rq6p8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+const uri = `ongodb+srv://${process.env.URI_USER}:${process.env.URI_PASS}@markside.rq6p8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 mongoose.connect(uri, { newUrlParser: true, useUnifiedTopology: true });
 
 // Log connection (in case of error)
