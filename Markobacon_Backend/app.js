@@ -32,19 +32,28 @@ const { body, validationResult } = require('express-validator');
 
 /* Login requests */
 app.get('/login', 
-
     // "sanitize" -- escaping not the best idea, but this won't be a multi-user setup
     body('username').escape().isLength({min: 4}).isAlphanumeric(),
     body('password').escape().isLength({min: 6}).isAlphanumeric(),
 
     (req, res) => {
+        console.log("login route called!")
         // Retrieve hashed password based on entered string.
         // If the username isn't found, return false login.
         // If the password doesn't match, return false login.
         usernameString = req.query.username;
         passwordString = req.query.password;
 
-        Login.findOne # bruh
+        Login.findOne({ username: usernameString }).then((user) =>{
+            console.log(res.json);
+            if(user.password === passwordString){
+                alert("Logged in!")
+            } else {
+                alert("Wrong password!")
+            }
+        }).catch((err)=>{
+
+        })
     }
 )
 
