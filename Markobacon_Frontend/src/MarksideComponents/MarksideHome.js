@@ -40,7 +40,7 @@ function MarksideHome() {
             
             // TODO: Update alerts to modals or something
             if (res.data.login === true) {
-                alert("Hey there " + username +"! Successfully logged in.")
+                alert("Hey there, " + username +"! You've successfully logged in.")
             } else {
                 alert("Login failure!\nReason: " + res.data.reason)
             }
