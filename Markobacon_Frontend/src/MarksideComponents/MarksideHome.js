@@ -3,8 +3,8 @@ import { ArrowLeftShort } from 'react-bootstrap-icons';
 import Button from 'react-bootstrap/Button'
 import MainColumnContent from './MainColumnContent.js';
 import SecondaryColumnContent from './SecondaryColumnContent.js';
+import axios from 'axios';
 import './Markside.css';
-
 require('dotenv').config()
 
 // TODO: Put some states here for the navbar selected item which then re-renders the BlogPost by passing in a new prop
@@ -25,12 +25,31 @@ function MarksideHome() {
 
         // TODO: Make post request to the token authentication system that you "build up"
         console.log("Running login submit")
-        fetch(`http://localhost:3001/login`).then((res)=>{
-            console.log(res.json())
+        axios.get(`http://localhost:3001/login?username=${username}&password=${password}`).then((res)=>{
+            console.log(res.data)
+
+
+            
+            // If we're creating, the response just holds on to a specific boolean (rip, this doesn't work. but the document is added!)
+            if(res.data.createAccount){
+                alert('New account created! Check the database to make sure the hash was stored.')
+                return
+            }
+
+            // Otherwise deal with login normally if it's successful
+            
+            // TODO: Update alerts to modals or something
+            if (res.data.login === true) {
+                alert("Hey there " + username +"! Successfully logged in.")
+            } else {
+                alert("Login failure!\nReason: " + res.data.reason)
+            }
+        }).catch((err)=>{
+            alert(err)
         });
 
     }    
-
+    console.log(process.env.BACKEND_HOST)
     return (
         <>
         <body>
@@ -70,7 +89,7 @@ function MarksideHome() {
                             className="marksideLogin"
                         ></input>
                         <input
-                            type="textarea"
+                            type="password"
                             name="username"
                             placeholder="Password"
                             value={password}

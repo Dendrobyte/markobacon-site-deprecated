@@ -25,6 +25,5 @@ mongoose.connect(uri);
 
 // Log connection (in case of error)
 const connection = mongoose.connection;
-console.log(`user is ${process.env.URI_USER} pass is ${process.env.URI_PASS}`)
 connection.on('error', (err) => console.log('Connection failed!\n'+ err))
 connection.once('open', () => console.log('Connected to Markside database successfully'));
