@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import { ArrowLeftShort } from 'react-bootstrap-icons';
-import axios from 'axios';
 import Button from 'react-bootstrap/Button'
 import MainColumnContent from './MainColumnContent.js';
 import SecondaryColumnContent from './SecondaryColumnContent.js';
 import './Markside.css';
+
+require('dotenv').config()
 
 // TODO: Put some states here for the navbar selected item which then re-renders the BlogPost by passing in a new prop
 let tempVar = 'latestPosts';
@@ -23,6 +24,11 @@ function MarksideHome() {
         event.preventDefault();
 
         // TODO: Make post request to the token authentication system that you "build up"
+        console.log("Running login submit")
+        fetch(`http://localhost:3001/login`).then((res)=>{
+            console.log(res.json())
+        });
+
     }    
 
     return (
@@ -48,7 +54,6 @@ function MarksideHome() {
                     <div className="mainColumnBody">
                         { /* Components depending on navbar selection will go here */ }
                         {/* Replace the below with this: <MainColumnContent content={tempVar} /> */}
-                        <MainColumnContent content={tempVar} />
                         <MainColumnContent content={tempVar} />
                         {/* End of blog post */}
                     </div>
