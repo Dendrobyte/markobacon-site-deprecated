@@ -45,6 +45,8 @@ app.get('/login',
         console.log("Login route called!")
         usernameString = req.query.username;
         passwordString = req.query.password;
+        console.log(usernameString)
+        console.log(passwordString)
 
         // Toggle variable for manual account creation -- Always false unless Mark is making a new account or something
         const createAccount = false;
