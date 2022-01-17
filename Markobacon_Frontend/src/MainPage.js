@@ -9,7 +9,7 @@ function MainPage() {
         <img src={profPic} className="profPic" alt="Mark Headshot"></img>
         <p>Hi there!</p>
         <p className="infoText">
-          My name's Mark. I do stuff and things (like the projects you see below!) and attempt to document them in some ways. While you're here, check out <a href ="/markside">my blog!</a>
+          My name's Mark. I do stuff and things (like the projects you see below!) and attempt to document them in some ways. While you're here, check out <a href ="/markside">my blog!</a> (It's not done yet... but we're getting there...)
         </p>
         <div className="projContainer">
           <p className="projects">
