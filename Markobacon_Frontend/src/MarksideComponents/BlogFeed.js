@@ -13,6 +13,7 @@ function BlogFeed(props){
             .then((data) => setTest(data.message));
     },  []);
 
+    // TODO: Pass in post details via props and iterating with a map (do with a loop first, but optmize with JS syntax)
     return (
         <>
             <p>{test}</p>
