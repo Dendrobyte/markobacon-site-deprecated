@@ -7,15 +7,13 @@ import axios from 'axios';
 import './Markside.css';
 require('dotenv').config()
 
-// TODO: Put some states here for the navbar selected item which then re-renders the BlogPost by passing in a new prop
-let tempVar = 'latestPosts';
-
 function MarksideHome() {
 
     // Ensure username and password fields are somewhat filled in, at least
     const [buttonDisabled, setButtonDisabled] = useState(true); 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [mainColContent, setMainColContent] = useState('latestPosts');
     useEffect(() => {
         setButtonDisabled(username === '' || password === '');
     }, [username, password])
@@ -28,8 +26,6 @@ function MarksideHome() {
         axios.get(`http://localhost:3001/login?username=${username}&password=${password}`).then((res)=>{
             console.log(res.data)
 
-
-            
             // If we're creating, the response just holds on to a specific boolean (rip, this doesn't work. but the document is added!)
             if(res.data.createAccount){
                 alert('New account created! Check the database to make sure the hash was stored.')
@@ -73,7 +69,7 @@ function MarksideHome() {
                     <div className="mainColumnBody">
                         { /* Components depending on navbar selection will go here */ }
                         {/* Replace the below with this: <MainColumnContent content={tempVar} /> */}
-                        <MainColumnContent content={tempVar} />
+                        <MainColumnContent content={mainColContent} />
                         {/* End of blog post */}
                     </div>
                 </div>
@@ -103,9 +99,7 @@ function MarksideHome() {
                         ></input>
                         <Button as="input" type="button" value="Submit" className="marksideLoginButton" disabled={buttonDisabled} onClick={handleLoginSubmit} />
                     </div>
-                    <div className="secondaryColumnHeader">
-                        <p className="secondaryColumnHeaderText">Tweets @Mobkinz78</p>
-                    </div>
+                    <Button variant="warning" className="newPostButton" onClick={() => setMainColContent('newPost')}>New Post</Button>{' '}
                     <SecondaryColumnContent />
                 </div>
             </div>
