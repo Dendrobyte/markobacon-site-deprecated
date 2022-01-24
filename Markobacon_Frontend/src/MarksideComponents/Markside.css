@@ -101,18 +101,27 @@ body {
     float: right;
     height: 100%;
     margin-right: 20px;
+    padding: 10px;
     /* position: fixed; */
     right: 0;
-}
-
-.secondaryColumnHeader {
     text-align: center;
 }
 
+.secondaryColumnHeader {
+    background-color: #145963;
+    padding: 5px 0px;  
+    border-radius: 5px;
+    width: 80%;
+    margin-bottom: 10px;
+    margin-top: 52px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
 .secondaryColumnHeaderText {
-    font-size: 28px;
-    color: #EEEEEE;
-    margin-bottom: 20px;
+    font-size: 24px;
+    color: #f1f1f1;
+    font-weight: 600;
 }
 
 .marksideLogin {
@@ -127,6 +136,64 @@ body {
     height: 32px;
     margin-bottom: 10px;
     padding-left: 10px;
+}
+
+.loginErrorText {
+    background: rgba(255, 255, 255, 0.671);
+    width: 50%;
+    padding: 5px;
+    color: rgba(180, 0, 0, 0.678);
+    margin: 2px auto;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.newPostButton {
+    border-radius: 10px;
+    padding: 10px 15px 10px 15px;
+    border: none;
+    font-size: 28px;
+    font-weight: 800px;
+    width: 80%;
+    height: 80px;
+    margin: 52px auto 12px auto;
+    background-color: #AA0600;
+    color: rgb(226, 226, 226);
+}
+
+.newPostButton:hover {
+    background-color: #8f0500;
+    cursor: pointer;
+}
+
+.newPostButton:active {
+    background-color: #2e0200;
+    cursor: pointer;
+}
+
+.newPostButton:disabled {
+    background-color: #311311;
+    cursor: not-allowed;
+    color: rgb(131, 131, 131);
+}
+
+.logoutButton {
+    border-radius: 10px;
+    padding: 10px 15px 10px 15px;
+    border: none;
+    font-size: 28px;
+    font-weight: 800px;
+    width: 80%;
+    height: 80px;
+    margin: 12px auto;
+    background-color: #004aaa;
+    color: rgb(226, 226, 226);
+}
+
+.logoutButton:hover {
+    background-color: #00438f;
+    cursor: pointer;
 }
 
 /* -- All BlogPost items -- */
@@ -178,4 +245,97 @@ body {
     display: block;
     text-align: right;
     font-size: 16px;
+}
+
+/* -- All NewPost Items -- */
+.newPostContainer {
+    background-color: #232323;
+    padding: 20px;
+    margin-top: 0px;
+    color: #EEEEEE;
+    margin: 10px 20px;
+}
+
+.newPostTitleText {
+    font-size: 24px;
+    font-weight: 600;
+    display: inline;
+    margin-right: 0px;
+}
+
+.newPostTitleTextArea {
+    font-size: 20px;
+    font-weight: 400;
+    display: inline-block;
+    margin: 4px 0px 4px 0px;
+    width: 60;
+    padding: 10px;
+    border:1px solid black;
+    border-radius: 4px;
+}
+
+.newPostTagsText {
+    color: #AFAFAF;
+    font-size: 18px;
+    display: inline;   
+}
+
+.newPostTagsTextArea {
+    font-size: 12px;
+    display: inline;
+    border:1px solid black;
+    border-radius: 4px;
+    padding: 6px;
+}
+
+.newPostTextArea {
+    padding: 8px;
+    width: 95%;
+    height: 400px;
+    text-align: left;
+    overflow-wrap: break-word;
+    resize: none;
+}
+
+.newPostSubtitle {
+    font-size: 16px;
+    font-weight: 200;
+    display: inline;
+    margin-right: 0px;
+    color: rgb(219, 219, 219);
+}
+
+.newPostBodySubtitle {
+    font-size: 12px;
+    font-weight: 200;
+    display: inline;
+    margin-right: 0px;  
+    color: rgb(219, 219, 219);
+}
+
+.newPostTitleGroup {
+    width: 100%;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.newPostSubmitButton {
+    border-radius: 10px;
+    padding: 10px 15px 10px 15px;
+    border: none;
+    font-size: 20px;
+    font-weight: 800px;
+    background-color: #AFAFAF;
+}
+.newPostSubmitButton:hover {
+    background-color: #AA0600;
+    color: rgb(219, 219, 219);
+    cursor: pointer;
+}
+.newPostSubmitButton:active {
+    background-color: #00aa39;
+    margin-top: 2px;
+    margin-bottom: -2px;
+    color: rgb(219, 219, 219);
+    cursor: pointer;
 }
