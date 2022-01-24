@@ -11,8 +11,25 @@ function LoginContent(props) {
 
     const [disableNewPost, setDisableNewPost] = useState(false);
 
-    // TODO: Temporary boolean to represent login.
-    const login = true;
+    // State variable to represent if a user is logged in (perhaps it can hold token?)
+    const [isLoggedIn, setIsLoggedIn] = useState('')
+    const [loginErrorMsg, setLoginErrMsg] = useState('')
+
+    // Check if user is logged in
+    // TODO: Change the token to the user's token stored in local storage or something
+    useEffect(() => {
+        axios.get(`http://localhost:8080/isloggedin`, {
+            headers: {
+                Authorization: "Bearer " + localStorage.getItem("authkey")
+            }
+        }).then((res) => {
+            // If successful?
+            if (res.data === true) setIsLoggedIn(true);
+        }).catch((err) => {
+            console.log(err)
+            setIsLoggedIn(false);
+        });
+    }, [])
 
     // Disable login button if either field is empty
     useEffect(() => {
@@ -24,31 +41,35 @@ function LoginContent(props) {
         event.preventDefault();
 
         console.log("Running login submit")
-        axios.get(`http://localhost:3001/login?username=${username}&password=${password}`).then((res)=>{
-            console.log(res.data)
-
-            // If we're creating, the response just holds on to a specific boolean (rip, this doesn't work. but the document is added!)
-            if(res.data.createAccount){
-                alert('New account created! Check the database to make sure the hash was stored.')
-                return
-            }
+        // TODO: Once we make proper request to Spring backend, store the token in local storage
+        axios.post(`http://localhost:8080/loginauth`, {
+                "username": username,
+                "password": password
+        }).then((res)=>{
+            localStorage.setItem("authkey", res.data.token)
+            console.log(localStorage.getItem("authkey"))
+            // TODO: Registration flag
 
             // Otherwise deal with login normally if it's successful
             
             // TODO: Update alerts to modals or something
-            if (res.data.login === true) {
-                alert("Hey there, " + username +"! You've successfully logged in.")
-            } else {
-                alert("Login failure!\nReason: " + res.data.reason)
+            if (res.status === 200) {
+                setLoginErrMsg('')
+                setIsLoggedIn(true)
+                setUsername('')
+                setPassword('')
             }
         }).catch((err)=>{
-            alert(err)
+            console.log(err)
+            setLoginErrMsg(<p className="loginErrorText">Incorrect Login!</p>)
         });
 
     }    
-
     // If they're logged in, show the New Post button. If they aren't, show the login form.
-    return login ? <><Button variant="warning" className="newPostButton" disabled={disableNewPost} onClick={() => {props.mainColContentFunc('newPost'); setDisableNewPost(true);}}>New Post</Button>{' '}</>
+    return isLoggedIn ? <>
+    <Button variant="warning" className="newPostButton" disabled={disableNewPost} onClick={() => {props.mainColContentFunc('newPost'); setDisableNewPost(true);}}>New Post</Button>{' '}
+    <Button variant="warning" className="logoutButton" onClick={() => {localStorage.removeItem("authkey"); setIsLoggedIn(false)}}>Logout</Button>
+    </>
         : (<>
             <div className="secondaryColumnHeader">
                 <p className="secondaryColumnHeaderText">Quick Login</p>
@@ -73,6 +94,7 @@ function LoginContent(props) {
                         }
                     }}
                 ></input>
+                {loginErrorMsg}
                 <Button as="input" type="button" value="Submit" className="marksideLoginButton" disabled={buttonDisabled} onClick={handleLoginSubmit} />
             </div>
             </>
