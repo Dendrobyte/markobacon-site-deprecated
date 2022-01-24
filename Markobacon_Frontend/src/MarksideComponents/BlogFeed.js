@@ -1,5 +1,6 @@
 import BlogPost from "./BlogPost";
 import {useState, useEffect} from 'react';
+import axios from 'axios';
 require('dotenv').config({ silent: true })
 
 function BlogFeed(props){
@@ -8,8 +9,7 @@ function BlogFeed(props){
 
     // TODO: Make the feed load 10 at first and then be dynamic. Loading the feed is where things are pulled/rendered from DB...?
     useEffect(() =>{
-        //fetch(`http://localhost:3001/allentries`,)
-        fetch(`http://localhost:8080/getallposts`)
+        axios.get(`http://localhost:8080/getallposts`)
             .then((res) => res.json())
             .then((data) => {
                 // Create an array object of posts that I can then return to render
@@ -21,6 +21,9 @@ function BlogFeed(props){
                     )
                 )
                 setPostArray(blogPostArray);
+            })
+            .catch((err) => {
+                setPostArray([<BlogPost key={-1} postTitle="Uh oh..." postTags={"ERR"} dateInUnix={0} postBody={"Something went wrong... :(\n\n"+err}/>])
             });
     },  []);
 
