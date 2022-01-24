@@ -95,28 +95,6 @@ body {
     padding: 0px;
 }
 
-.newPostContainer {
-    background-color: #ee643a;
-    padding: 20px;
-    margin-top: 0px;
-    color: #EEEEEE;
-    margin: 10px 20px;
-}
-
-.newPostTitleTextArea {
-
-}
-
-.newPostTagsTextArea {
-
-}
-
-.newPostTextArea {
-    padding: 5px;
-    width: 95%;
-    content-align: center;
-}
-
 /* -- Secondary column styles -- */
 .secondaryColumn {
     width: 25%;
@@ -207,4 +185,98 @@ body {
     display: block;
     text-align: right;
     font-size: 16px;
+}
+
+/* -- All NewPost Items -- */
+.newPostContainer {
+    background-color: #232323;
+    padding: 20px;
+    margin-top: 0px;
+    color: #EEEEEE;
+    margin: 10px 20px;
+}
+
+.newPostTitleText {
+    font-size: 24px;
+    font-weight: 600;
+    display: inline;
+    margin-right: 0px;
+}
+
+.newPostTitleTextArea {
+    font-size: 20px;
+    font-weight: 400;
+    display: inline-block;
+    margin: 4px 0px 4px 0px;
+    width: 60;
+    padding: 10px;
+    border:1px solid black;
+    border-radius: 4px;
+}
+
+.newPostTagsText {
+    color: #AFAFAF;
+    font-size: 18px;
+    display: inline;   
+}
+
+.newPostTagsTextArea {
+    font-size: 12px;
+    display: inline;
+    border:1px solid black;
+    border-radius: 4px;
+    padding: 6px;
+}
+
+.newPostTextArea {
+    padding: 8px;
+    width: 95%;
+    height: 400px;
+    text-align: left;
+    overflow-wrap: break-word;
+    resize: none;
+}
+
+.newPostSubtitle {
+    font-size: 16px;
+    font-weight: 200;
+    display: inline;
+    margin-right: 0px;
+    color: rgb(219, 219, 219);
+}
+
+.newPostBodySubtitle {
+    font-size: 12px;
+    font-weight: 200;
+    display: inline;
+    margin-right: 0px;  
+    color: rgb(219, 219, 219);
+}
+
+.newPostTitleGroup {
+    width: 100%;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.newPostSubmitButton {
+    border-radius: 10px;
+    padding: 10px 15px 10px 15px;
+    border: none;
+    font-size: 20px;
+    font-weight: 800px;
+    
+    background-color: #AFAFAF;
+}
+.newPostSubmitButton:hover {
+    background-color: #AA0600;
+    color: rgb(219, 219, 219);
+    cursor: pointer;
+}
+.newPostSubmitButton:active {
+    background-color: #00aa39;
+    margin-top: 2px;
+    margin-bottom: -2px;
+    color: rgb(219, 219, 219);
+    cursor: pointer;
 }

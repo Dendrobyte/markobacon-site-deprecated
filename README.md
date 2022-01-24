@@ -12,6 +12,6 @@ It's my portfolio site... and I chose to use React/Express for the frontend/back
 
 The front-end of the website is the look of everything. I build static files and push/upload those to my site host.
 
-The back-end of the website is the operation of everything that is dynamic. At the moment, that's just the blog page pretty much. Login auth is currently using react 'n stuff, the rest uses Spring JS.
+The back-end of the website is the operation of everything that is dynamic. At the moment, that's just the blog page pretty much. The framework is being built in Spring, on a currently privated repository.
 
 Each folder has its own README with more instruction. The blog page is a project that will be wrapped up by the end of September 2021... and I'm not sure where we'll go after that! Hopefully make the front a little more... exciting, if you will :)

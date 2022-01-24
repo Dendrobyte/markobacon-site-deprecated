@@ -45,7 +45,6 @@ function MarksideHome() {
         });
 
     }    
-    console.log(process.env.BACKEND_HOST)
     return (
         <>
         <body>

@@ -14,6 +14,7 @@ function BlogFeed(props){
             .then((data) => {
                 // Create an array object of posts that I can then return to render
                 let blogPostArray = [];
+                data.reverse();
                 blogPostArray = data.map((postInfo, index) => 
                     (
                         <BlogPost key={index} postTitle={postInfo.postTitle} postTags={postInfo.postTags} dateInUnix={postInfo.dateInUnix} postBody={postInfo.postBody}/>
