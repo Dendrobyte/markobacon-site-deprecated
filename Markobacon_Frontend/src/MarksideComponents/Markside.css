@@ -101,18 +101,26 @@ body {
     float: right;
     height: 100%;
     margin-right: 20px;
+    padding: 10px;
     /* position: fixed; */
     right: 0;
-}
-
-.secondaryColumnHeader {
     text-align: center;
 }
 
+.secondaryColumnHeader {
+    background-color: #145963;
+    padding: 5px 0px;  
+    border-radius: 5px;
+    width: 80%;
+    margin-bottom: 10px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
 .secondaryColumnHeaderText {
-    font-size: 28px;
-    color: #EEEEEE;
-    margin-bottom: 20px;
+    font-size: 24px;
+    color: #f1f1f1;
+    font-weight: 600;
 }
 
 .marksideLogin {
@@ -130,10 +138,32 @@ body {
 }
 
 .newPostButton {
+    border-radius: 10px;
+    padding: 10px 15px 10px 15px;
+    border: none;
+    font-size: 28px;
+    font-weight: 800px;
     width: 80%;
-    height: 32px;
-    margin-bottom: 10px;
-    padding-left: 10px;
+    height: 80px;
+    margin: 52px auto;
+    background-color: #AA0600;
+    color: rgb(226, 226, 226);
+}
+
+.newPostButton:hover {
+    background-color: #8f0500;
+    cursor: pointer;
+}
+
+.newPostButton:active {
+    background-color: #2e0200;
+    cursor: pointer;
+}
+
+.newPostButton:disabled {
+    background-color: #311311;
+    cursor: not-allowed;
+    color: rgb(131, 131, 131);
 }
 
 /* -- All BlogPost items -- */
@@ -265,7 +295,6 @@ body {
     border: none;
     font-size: 20px;
     font-weight: 800px;
-    
     background-color: #AFAFAF;
 }
 .newPostSubmitButton:hover {

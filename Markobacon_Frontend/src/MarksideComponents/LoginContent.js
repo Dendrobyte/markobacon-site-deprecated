@@ -9,8 +9,10 @@ function LoginContent(props) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
+    const [disableNewPost, setDisableNewPost] = useState(false);
+
     // TODO: Temporary boolean to represent login.
-    const login = false;
+    const login = true;
 
     // Disable login button if either field is empty
     useEffect(() => {
@@ -46,7 +48,7 @@ function LoginContent(props) {
     }    
 
     // If they're logged in, show the New Post button. If they aren't, show the login form.
-    return login ? <><Button variant="warning" className="newPostButton" onClick={() => props.mainColContentFunc('newPost')}>New Post</Button>{' '}</>
+    return login ? <><Button variant="warning" className="newPostButton" disabled={disableNewPost} onClick={() => {props.mainColContentFunc('newPost'); setDisableNewPost(true);}}>New Post</Button>{' '}</>
         : (<>
             <div className="secondaryColumnHeader">
                 <p className="secondaryColumnHeaderText">Quick Login</p>

@@ -10,8 +10,8 @@ function MainColumnContent(props){
         return <BlogFeed />
     } else if (props.content === 'newPost'){
         // TODO: Do a double-check to ensure someone has the right token
-        const tempLoggedIn = false; // Temporary boolean for front-end testing
-
+        const tempLoggedIn = true; // Temporary boolean for front-end testing
+        
         return tempLoggedIn ? <NewPost /> : <MainColError />
     }
 }

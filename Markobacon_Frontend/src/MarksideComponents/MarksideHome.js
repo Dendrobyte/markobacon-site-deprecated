@@ -15,7 +15,7 @@ function MarksideHome() {
         <body>
             <div className="homeTopBar">
                 <ArrowLeftShort className="homeTopBarArrow" />
-                <p className="homeTopBarText">Return from whence you came...</p>
+                <p className="homeTopBarText" onClick={() => window.history.back()}>Return from whence you came...</p>
             </div>
             
             <div className="homeHeader">
@@ -38,7 +38,7 @@ function MarksideHome() {
                     </div>
                 </div>
                 <div className="secondaryColumn">
-                    <LoginContent mainColContentFunc={setMainColContent}/>
+                    <LoginContent mainColContentVar={mainColContent} mainColContentFunc={setMainColContent}/>
                     <SecondaryColumnContent />
                 </div>
             </div>

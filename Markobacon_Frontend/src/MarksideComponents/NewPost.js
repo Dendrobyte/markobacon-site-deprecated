@@ -20,9 +20,9 @@ function NewPost(props) {
         console.log("Post info: " + JSON.stringify(newPostObj));
         axios.post(`http://localhost:8080/newpost?postTitle=${formTitle}&postTags=${formTags}&postBody=${formBody}`)
         .then(response => {
-            alert("Post submitted! :D");
+            alert("Post submitted! :D"+response);
         }).catch(err => {
-            alert("Encountered an error....");
+            alert("Encountered an error...");
             
             console.log(err);
         });
