@@ -1,7 +1,6 @@
 import BlogPost from "./BlogPost";
 import {useState, useEffect} from 'react';
 import axios from 'axios';
-require('dotenv').config({ silent: true })
 
 function BlogFeed(props){
 

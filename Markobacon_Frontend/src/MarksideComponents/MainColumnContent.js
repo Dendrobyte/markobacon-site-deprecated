@@ -12,7 +12,7 @@ function MainColumnContent(props){
         // TODO: Do a double-check to ensure someone has the right token
         const tempLoggedIn = true; // Temporary boolean for front-end testing
         
-        return tempLoggedIn ? <NewPost /> : <MainColError />
+        return tempLoggedIn ? <NewPost mainColContentFunc={props.mainColContentFunc} /> : <MainColError />
     }
 }
 

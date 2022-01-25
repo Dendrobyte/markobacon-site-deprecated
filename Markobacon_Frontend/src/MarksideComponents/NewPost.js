@@ -2,6 +2,7 @@ import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import {useState, useEffect} from 'react';
 import axios from 'axios';
+import PostsLoading from "./PostsLoading";
 
 function NewPost(props) {
 
@@ -9,6 +10,7 @@ function NewPost(props) {
     const [formTitle, setFormTitle] = useState('');
     const [formTags, setFormTags] = useState('');
     const [formBody, setFormBody] = useState('');
+    const [loading, setLoading] = useState(false);
 
     const handleNewPostSubmit = (event) => {
         event.preventDefault();
@@ -20,7 +22,8 @@ function NewPost(props) {
         console.log("Post info: " + JSON.stringify(newPostObj));
         axios.post(`http://localhost:8080/newpost?postTitle=${formTitle}&postTags=${formTags}&postBody=${formBody}`)
         .then(response => {
-            alert("Post submitted! :D"+response);
+            setLoading(true);
+            props.mainColContentFunc('latestPosts')
         }).catch(err => {
             alert("Encountered an error...");
             
@@ -29,7 +32,7 @@ function NewPost(props) {
         
     }
 
-    return (
+    return !loading ? (
         <>
         <div className="newPostContainer">
             <Form onSubmit={handleNewPostSubmit}>
@@ -65,6 +68,8 @@ function NewPost(props) {
                 </Form>
         </div>
         </>
+    ) : (
+        <PostsLoading />
     )
 
 }
