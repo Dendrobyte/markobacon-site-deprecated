@@ -153,10 +153,10 @@ body {
     border-radius: 10px;
     padding: 10px 15px 10px 15px;
     border: none;
-    font-size: 28px;
+    font-size: 24px;
     font-weight: 800px;
     width: 80%;
-    height: 80px;
+    height: 48px;
     margin: 52px auto 12px auto;
     background-color: #AA0600;
     color: rgb(226, 226, 226);
@@ -182,17 +182,17 @@ body {
     border-radius: 10px;
     padding: 10px 15px 10px 15px;
     border: none;
-    font-size: 28px;
+    font-size: 20px;
     font-weight: 800px;
-    width: 80%;
-    height: 80px;
+    width: 70%;
+    height: 40px;
     margin: 12px auto;
-    background-color: #004aaa;
+    background-color: #AA0600;
     color: rgb(226, 226, 226);
 }
 
 .logoutButton:hover {
-    background-color: #00438f;
+    background-color: #8f0500;
     cursor: pointer;
 }
 

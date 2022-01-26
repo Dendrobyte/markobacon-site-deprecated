@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import './Markside.css';
 
 // TODO: Blog post should have two main states- preview and extended. Should seamlessly work when in a BlogFeed component.
@@ -10,6 +11,17 @@ function BlogPost(props) {
         return date.toDateString();
     });
 
+    const [readMoreTag, setReadMoreTag] = useState('');
+
+    useEffect(() => {
+        // Check the post body to see if we need a "read more" tag
+        if (props.postBody.length > 100) {
+            setReadMoreTag("Read More...")
+        } else {
+            setReadMoreTag("");
+        }
+    }, [props.postBody.length]);
+
     return (
         <>
             <div className="blogPostContainer">
@@ -19,7 +31,7 @@ function BlogPost(props) {
                     <p className="blogPostTimestamp">{convertUnixToTimestamp(props.dateInUnix)}</p>
                 </div>
                 <p className="blogPostContent">{props.postBody}</p>
-                <p className="blogPostExpand">Read More...</p> { /* TODO: Switch it when it toggles (make this a function) */ }
+                <p className="blogPostExpand">{readMoreTag}</p> { /* TODO: Switch it when it toggles (make this a function) */ }
             </div>
         </>
     )

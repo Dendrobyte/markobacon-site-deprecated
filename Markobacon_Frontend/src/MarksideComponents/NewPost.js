@@ -3,6 +3,7 @@ import { Button } from "react-bootstrap";
 import {useState, useEffect} from 'react';
 import axios from 'axios';
 import PostsLoading from "./PostsLoading";
+import validator from 'validator';
 
 function NewPost(props) {
 
@@ -15,15 +16,16 @@ function NewPost(props) {
     const handleNewPostSubmit = (event) => {
         event.preventDefault();
         let newPostObj = {
-            postTitle: formTitle,
-            postTags: formTags,
-            postBody: formBody
+            postTitle: formTitle.replace("[", "&br_open%").replace("]", "%br_close%"), // TODO: Ensure title can't have angles 'n stuff (validator escape)
+            postTags: validator.escape(formTags), // TODO: Make sure tags are nothing but plaintext
+            postBody: formBody.replace("[", "&br_open&").replace("]", "%br_close%")
         }
         console.log("Post info: " + JSON.stringify(newPostObj));
-        axios.post(`http://localhost:8080/newpost?postTitle=${formTitle}&postTags=${formTags}&postBody=${formBody}`)
+        axios.post(`http://localhost:8080/newpost?postTitle=${newPostObj.postTitle}&postTags=${newPostObj.postTags}&postBody=${newPostObj.postBody}`)
         .then(response => {
             setLoading(true);
             props.mainColContentFunc('latestPosts')
+            
         }).catch(err => {
             alert("Encountered an error...");
             
