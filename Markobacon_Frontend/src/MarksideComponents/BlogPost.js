@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './Markside.css';
+import PostAssistant from './PostAssistant.js';
 
 // TODO: Blog post should have two main states- preview and extended. Should seamlessly work when in a BlogFeed component.
 // TODO: For obvious reasons, these things should be passed in as props.
@@ -30,7 +31,7 @@ function BlogPost(props) {
                     <p className="blogPostTags">{props.postTags}</p> { /* TODO: Make into a list when I integrate db stuff */ }
                     <p className="blogPostTimestamp">{convertUnixToTimestamp(props.dateInUnix)}</p>
                 </div>
-                <p className="blogPostContent">{props.postBody}</p>
+                <p className="blogPostContent">{PostAssistant.decodeText(props.postBody)}</p>
                 <p className="blogPostExpand">{readMoreTag}</p> { /* TODO: Switch it when it toggles (make this a function) */ }
             </div>
         </>
