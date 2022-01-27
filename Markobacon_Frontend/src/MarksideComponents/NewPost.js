@@ -1,7 +1,10 @@
 import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
-import {useState, useEffect} from 'react';
+import { useState } from 'react';
 import axios from 'axios';
+import PostsLoading from "./PostsLoading";
+import validator from 'validator';
+import PostAssistant from './PostAssistant.js';
 
 function NewPost(props) {
 
@@ -9,18 +12,22 @@ function NewPost(props) {
     const [formTitle, setFormTitle] = useState('');
     const [formTags, setFormTags] = useState('');
     const [formBody, setFormBody] = useState('');
+    const [loading, setLoading] = useState(false);
 
     const handleNewPostSubmit = (event) => {
         event.preventDefault();
         let newPostObj = {
-            postTitle: formTitle,
-            postTags: formTags,
-            postBody: formBody
+            postTitle: PostAssistant.encodeText(formTitle), // TODO: Ensure title can't have angles 'n stuff (validator escape)
+            postTags: validator.escape(formTags), // TODO: Make sure tags are nothing but plaintext
+            postBody: PostAssistant.encodeText(formBody)
         }
         console.log("Post info: " + JSON.stringify(newPostObj));
-        axios.post(`http://localhost:8080/newpost?postTitle=${formTitle}&postTags=${formTags}&postBody=${formBody}`)
+        axios.post(`http://localhost:8080/newpost?postTitle=${newPostObj.postTitle}&postTags=${newPostObj.postTags}&postBody=${newPostObj.postBody}`)
         .then(response => {
-            alert("Post submitted! :D"+response);
+            setLoading(true);
+            // TODO Make new post button not greyed out.
+            props.mainColContentFunc('latestPosts')
+            
         }).catch(err => {
             alert("Encountered an error...");
             
@@ -29,7 +36,7 @@ function NewPost(props) {
         
     }
 
-    return (
+    return !loading ? (
         <>
         <div className="newPostContainer">
             <Form onSubmit={handleNewPostSubmit}>
@@ -65,6 +72,8 @@ function NewPost(props) {
                 </Form>
         </div>
         </>
+    ) : (
+        <PostsLoading />
     )
 
 }

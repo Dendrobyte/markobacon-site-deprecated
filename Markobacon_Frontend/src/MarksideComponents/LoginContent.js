@@ -46,8 +46,7 @@ function LoginContent(props) {
                 "username": username,
                 "password": password
         }).then((res)=>{
-            localStorage.setItem("authkey", res.data.token)
-            console.log(localStorage.getItem("authkey"))
+            localStorage.setItem("authkey", res.data.token);
             // TODO: Registration flag
 
             // Otherwise deal with login normally if it's successful
@@ -65,10 +64,17 @@ function LoginContent(props) {
         });
 
     }    
+
+    const handleLogout = (event) => {
+        localStorage.removeItem("authkey");
+        setIsLoggedIn(false);
+        setDisableNewPost(false);
+        props.mainColContentFunc('latestPosts');
+    }
     // If they're logged in, show the New Post button. If they aren't, show the login form.
     return isLoggedIn ? <>
     <Button variant="warning" className="newPostButton" disabled={disableNewPost} onClick={() => {props.mainColContentFunc('newPost'); setDisableNewPost(true);}}>New Post</Button>{' '}
-    <Button variant="warning" className="logoutButton" onClick={() => {localStorage.removeItem("authkey"); setIsLoggedIn(false)}}>Logout</Button>
+    <Button variant="warning" className="logoutButton" onClick={() => handleLogout()}>Logout</Button>
     </>
         : (<>
             <div className="secondaryColumnHeader">

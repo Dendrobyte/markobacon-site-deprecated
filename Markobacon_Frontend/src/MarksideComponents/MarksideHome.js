@@ -1,10 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { ArrowLeftShort } from 'react-bootstrap-icons';
 import LoginContent from './LoginContent.js';
 import MainColumnContent from './MainColumnContent.js';
 import SecondaryColumnContent from './SecondaryColumnContent.js';
 import './Markside.css';
-require('dotenv').config()
 
 function MarksideHome() {
 
@@ -33,7 +32,7 @@ function MarksideHome() {
                     <div className="mainColumnBody">
                         { /* Components depending on navbar selection will go here */ }
                         {/* Replace the below with this: <MainColumnContent content={tempVar} /> */}
-                        <MainColumnContent content={mainColContent} />
+                        <MainColumnContent content={mainColContent} mainColContentFunc={setMainColContent} />
                         {/* End of blog post */}
                     </div>
                 </div>
