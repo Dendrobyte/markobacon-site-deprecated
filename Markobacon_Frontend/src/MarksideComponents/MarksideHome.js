@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { ArrowLeftShort } from 'react-bootstrap-icons';
 import LoginContent from './LoginContent.js';
 import MainColumnContent from './MainColumnContent.js';
