@@ -18,7 +18,7 @@ function LoginContent(props) {
     // Check if user is logged in
     // TODO: Change the token to the user's token stored in local storage or something
     useEffect(() => {
-        axios.get(`http://localhost:8080/isloggedin`, {
+        axios.get(`https://markside-backend.herokuapp.com/isloggedin`, {
             headers: {
                 Authorization: "Bearer " + localStorage.getItem("authkey")
             }
@@ -42,7 +42,7 @@ function LoginContent(props) {
 
         console.log("Running login submit")
         // TODO: Once we make proper request to Spring backend, store the token in local storage
-        axios.post(`http://localhost:8080/loginauth`, {
+        axios.post(`https://markside-backend.herokuapp.com/loginauth`, {
                 "username": username,
                 "password": password
         }).then((res)=>{

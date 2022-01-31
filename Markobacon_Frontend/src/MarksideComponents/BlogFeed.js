@@ -8,7 +8,7 @@ function BlogFeed(props){
 
     // TODO: Make the feed load 10 at first and then be dynamic. Loading the feed is where things are pulled/rendered from DB...?
     useEffect(() =>{
-        axios.get(`http://localhost:8080/getallposts`)
+        axios.get(`https://markside-backend.herokuapp.com/getallposts`)
             .then((res) => res.data)
             .then((data) => {
                 // Create an array object of posts that I can then return to render
