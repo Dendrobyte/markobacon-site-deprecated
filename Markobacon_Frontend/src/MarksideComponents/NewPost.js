@@ -22,12 +22,13 @@ function NewPost(props) {
             postBody: PostAssistant.encodeText(formBody)
         }
         console.log("Post info: " + JSON.stringify(newPostObj));
-        axios.post(`https://markside-backend.herokuapp.com/newpost?postTitle=${newPostObj.postTitle}&postTags=${newPostObj.postTags}&postBody=${newPostObj.postBody}`, {
+        console.log("Bearer " + localStorage.getItem("authkey"))
+        axios.post(`http://localhost:8080/newpost?postTitle=${newPostObj.postTitle}&postTags=${newPostObj.postTags}&postBody=${newPostObj.postBody}`, { /* TODO: Post stuff goes here */ }, {
             headers: {
                 Authorization: "Bearer " + localStorage.getItem("authkey")
             }
         })
-        .then(response => {
+        .then(() => {
             setLoading(true);
             // TODO Make new post button not greyed out.
             props.mainColContentFunc('latestPosts')

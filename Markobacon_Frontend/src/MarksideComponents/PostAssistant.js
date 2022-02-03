@@ -12,6 +12,8 @@ const encodeText = (text) => {
     text = text.replaceAll("[", marker + 'br_open' + marker).replaceAll("]", marker + 'br_close' + marker);
     // Replace """ and "'"
     text = text.replaceAll("\"", marker + 'quot_dubl' + marker).replaceAll("'", marker + 'quot_sing' + marker);
+    // Replace "`"
+    text = text.replaceAll("`", marker + 'tick' + marker);
     // Replace "\n"
     text = text.replaceAll("\n", marker + 'newline' + marker);
     // Replace "\t"
@@ -37,6 +39,8 @@ const decodeText = (text) => {
     text = text.replaceAll(marker + 'br_open' + marker, "[").replaceAll(marker + 'br_close' + marker, "]");
     // Put in """ and "'"
     text = text.replaceAll(marker + 'quot_dubl' + marker, "\"").replaceAll(marker + 'quot_sing' + marker, "'");
+    // Put in "`"
+    text = text.replaceAll(marker + 'tick' + marker, "`");
     // Put in "\n"
     text = text.replaceAll(marker + 'newline' + marker, "\n",);
     // Put in "\n"
