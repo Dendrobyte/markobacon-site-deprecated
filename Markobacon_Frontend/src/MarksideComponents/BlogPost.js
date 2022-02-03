@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './Markside.css';
+import PostAssistant from './PostAssistant';
 import MarkdownFormatter from './MarkdownFormatter';
 
 // TODO: Blog post should have two main states- preview and extended. Should seamlessly work when in a BlogFeed component.
@@ -15,7 +16,7 @@ function BlogPost(props) {
     });
 
     const [readMoreTag, setReadMoreTag] = useState('');
-    const [blogPostBody, setBlogPostBody] = useState(props.postBody.substring(0, prevLength) + "...");
+    const [blogPostBody, setBlogPostBody] = useState(PostAssistant.decodeText(props.postBody).substring(0, prevLength) + "...");
 
     useEffect(() => {
         // Check the post body to see if we need a "read more" tag
