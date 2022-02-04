@@ -1,25 +1,37 @@
 /* Global Styles */
 .pageContainer {
-  width: 80%;
+  width: 60%;
   margin: auto;
-  background-color: #282c34;
+  padding: 2%;
+  background-color: #f3f3f3;
   min-height: 100vh;
-  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
-  padding: 20px;
+  color: rgb(22, 22, 22);
+
 }
 
 /* Top Section */
 .sectionTop {
-  padding: 2%;
+  text-align: left;
+  /* TODO: Make the background of the top section a whole image */
+}
+
+.bannerPic {
+  width: 100%;
 }
 
 .sectionTopLeft {
-  width: 50%;
+  width: 70%;
+  float:left;
+}
+
+.profPic {
+  border-radius: 10px;
+  width: 30%;
+  display: inline-block;
 }
 
 .mainText {
@@ -29,25 +41,58 @@
 }
 
 .infoText {
-  font-size: 32px;
+  font-size: 16px;
   font-weight: 200px;
+  line-height: 28px;
+  width: 80%;
 }
 
-/* Skills */
+.sectionBreaker {
+  margin-top: 80px;
+  margin-bottom: 40px;
+  color: rgb(206, 206, 206, .4);
+}
 
-/* Projects */
+/* Generic Lower Section Styles */
+.sectionBottom {
+  margin: auto;
+  padding: auto;
+}
+.sectionBottomThird {
+  width: calc(97% / 3);
+  display: inline-block;
+  margin: 0px .5%;
+  vertical-align: top;
+}
 
-/* External Links */
-.infoText {
+.sectionBottomThirdTitle {
+  font-weight: 600;
+  text-align: center;
+}
+
+.sectionBottomThirdList {
   font-size: 16px;
 }
 
-.profPic {
-  height: 400px;
-  border-radius: 10px;
-  box-shadow: grey 0px 2px 20px;
-  margin-bottom: 40px;
+.sectionBottomThirdListItem {
+
 }
+/* Skills */
+.sectionBottomThirdSkills {
+  
+}
+
+/* Projects */
+.sectionBottomThirdProjects {
+  
+}
+
+/* External Links */
+.sectionBottomThirdExternal {
+  
+}
+
+/* LEGACY */
 
 .projects {
   text-align: left;
@@ -71,7 +116,7 @@ a:active,
 a:link,
 a:visited {
   text-decoration: none;
-  color: gold;
+  color: maroon;
 }
 
 a:hover {
