@@ -1,7 +1,43 @@
-.App {
-  text-align: center;
+/* Global Styles */
+.pageContainer {
+  width: 80%;
+  margin: auto;
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  padding: 20px;
 }
 
+/* Top Section */
+.sectionTop {
+  padding: 2%;
+}
+
+.sectionTopLeft {
+  width: 50%;
+}
+
+.mainText {
+  font-size: 72px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.infoText {
+  font-size: 32px;
+  font-weight: 200px;
+}
+
+/* Skills */
+
+/* Projects */
+
+/* External Links */
 .infoText {
   font-size: 16px;
 }
@@ -53,29 +89,15 @@ ul {
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+/* CSS Animations */ 
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
+/* TODO: Animation to fill bars for skills */
+@keyframes fillBar {
   from {
     transform: scale(1);
   }
+
   to {
     transform: scale(1.2);
-  }
-  to {
-    transform: scale(1);
   }
 }
