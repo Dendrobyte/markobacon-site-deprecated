@@ -13,14 +13,21 @@
 
 }
 
+.sectionTopBg {
+  width: 64%;
+  margin: auto 18%;
+  height: 332px;
+  /* TODO: Somehow make height dynamic... a percentage? */
+  /* background-color: aqua; */
+  background-image: url('./img/bannerPic.jpg');
+  opacity: .2;
+  position: absolute;
+}
+
 /* Top Section */
 .sectionTop {
   text-align: left;
-  /* TODO: Make the background of the top section a whole image */
-}
-
-.bannerPic {
-  width: 100%;
+  position: relative;
 }
 
 .sectionTopLeft {

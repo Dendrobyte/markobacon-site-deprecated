@@ -4,8 +4,10 @@ import "./MainPage.css";
 
 function MainPage() {
   return (
+    <>
+    <div className="sectionTopBg"></div>
     <div className="pageContainer">
-      {/* TODO: <img src={bannerPic} className="bannerPic" alt="banner pic"></img> */}
+      { /* <img src={bannerPic} className="bannerPic" alt="banner pic"></img> */}
       <div className="sectionTop">
         <div className="sectionTopLeft">
           <div className="mainText">
@@ -83,6 +85,7 @@ function MainPage() {
       </div>
       
     </div>
+    </>
   );
 }
 
