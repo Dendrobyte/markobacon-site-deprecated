@@ -43,7 +43,7 @@ function BlogPost(props) {
             <div className="blogPostContainer">
                 <div className="blogPostHeader">
                     <div className="blogPostTitle">{props.postTitle}</div>
-                    <div className="blogPostTags">{props.postTags}</div> { /* TODO: Make into a list when I integrate db stuff */ }
+                    <div className="blogPostTags">{PostAssistant.formatTags(props.postTags)}</div> { /* TODO: Make into a list when I integrate db stuff */ }
                     <div className="blogPostTimestamp">{convertUnixToTimestamp(props.dateInUnix)}</div>
                 </div>
                 <div className="blogPostContent">

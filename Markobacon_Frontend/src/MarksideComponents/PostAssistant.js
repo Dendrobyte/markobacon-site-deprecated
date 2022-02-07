@@ -64,5 +64,12 @@ const isValidBody = (text) => {
 
 }
 
-const PostAssistant = { encodeText, decodeText, isValidBody };
+/*
+ * Convert comma separated tags into a pound sign followed by a space
+*/
+const formatTags = (text) => {
+    return "#" + text.replaceAll(",", " #")
+}
+
+const PostAssistant = { encodeText, decodeText, isValidBody, formatTags };
 export default PostAssistant;
