@@ -1,4 +1,7 @@
 /* Global Styles */
+html {
+  background-color: #f3f3f3;
+}
 .pageContainer {
   width: 60%;
   margin: auto;
@@ -11,6 +14,13 @@
   font-size: calc(10px + 2vmin);
   color: rgb(22, 22, 22);
 
+}
+
+.hidden {
+  font-size: 8px;
+  color: (21, 21, 21, .2);
+  margin: 0px;
+  padding: 0px;
 }
 
 .sectionTopBg {
@@ -55,15 +65,17 @@
 }
 
 .sectionBreaker {
-  margin-top: 80px;
-  margin-bottom: 40px;
-  color: rgb(206, 206, 206, .4);
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: #f3f3f3;
+  border: none;
 }
 
 /* Generic Lower Section Styles */
 .sectionBottom {
   margin: auto;
-  padding: auto;
+  padding: 40px 0px 0px 0px;
+  border-top: 2px ridge rgb(206, 206, 206, .4);
 }
 .sectionBottomThird {
   width: calc(97% / 3);
@@ -82,6 +94,7 @@
 }
 
 .sectionBottomThirdListItem {
+  margin-top: 10px;
 
 }
 /* Skills */
@@ -97,6 +110,40 @@
 /* External Links */
 .sectionBottomThirdExternal {
   
+}
+
+/* Progress Bars */
+/* TODO: Can these be turned into something a little more... dynamic...? */
+.progBar {
+  padding: 8px;
+  color: #f3f3f3;
+  font-size: 14px;
+  margin: 4px 0px 10px 0px;
+  width: 80%;
+}
+
+.progBar40 {
+  background: linear-gradient(to right, rgb(128, 94, 0) 0%, rgb(128, 94, 0) 40%, rgb(207, 176, 0) 40%, rgb(207, 176, 0) 100%);
+}
+
+.progBar80 {
+  background: linear-gradient(to right, maroon 0%, maroon 80%, rgb(168, 0, 0) 80%, rgb(168, 0, 0) 100%);
+}
+
+.progBar85 {
+  background: linear-gradient(to right, rgb(0, 128, 58) 0%, rgb(0, 128, 58) 85%, rgb(0, 168, 14) 85%, rgb(0, 168, 14) 100%);
+}
+
+.progBar90 {
+  background: linear-gradient(to right, rgb(128, 68, 0) 0%, rgb(128, 68, 0) 90%, rgb(235, 133, 0) 90%, rgb(235, 133, 0) 100%);
+}
+
+.progBar95 {
+  background: linear-gradient(to right, rgb(81, 0, 128) 0%, rgb(81, 0, 128) 95%, rgb(134, 0, 168) 95%, rgb(134, 0, 168) 100%);
+}
+
+.progBar99 {
+  background: linear-gradient(to right, rgb(0, 119, 128) 0%, rgb(0, 119, 128) 99%, rgb(0, 214, 230) 99%, rgb(0, 214, 230) 100%);
 }
 
 /* LEGACY */
@@ -146,10 +193,10 @@ ul {
 /* TODO: Animation to fill bars for skills */
 @keyframes fillBar {
   from {
-    transform: scale(1);
+    transform: scale(0);
   }
 
   to {
-    transform: scale(1.2);
+    transform: scale(1.0);
   }
 }

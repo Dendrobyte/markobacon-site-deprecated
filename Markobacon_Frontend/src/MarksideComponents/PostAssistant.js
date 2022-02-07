@@ -1,4 +1,3 @@
-import validator from 'validator';
 
 // TODO: Change replacements to regex for practice.
 
