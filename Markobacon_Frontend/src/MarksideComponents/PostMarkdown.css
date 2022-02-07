@@ -1,0 +1,13 @@
+.headerL1 {
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.headerL2 {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.normText {
+    display: inline;
+}
