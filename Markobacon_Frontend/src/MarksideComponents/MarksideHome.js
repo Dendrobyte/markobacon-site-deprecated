@@ -20,6 +20,7 @@ function MarksideHome() {
             <div className="homeHeader">
                 <h1 className="marksideText">Markside</h1>
                 <p className="marksideSubtext">Welcome to my 'side' of the internet</p>
+                <p className="marksideSubtext">Blog page is, visibly, a live WIP | Frontend: React JS, Backend: Spring (Java)</p>
             </div>
 
             <div className="homeBody">

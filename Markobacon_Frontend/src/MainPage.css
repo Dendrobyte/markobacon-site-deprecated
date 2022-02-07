@@ -65,8 +65,8 @@ html {
 }
 
 .sectionBreaker {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 10%;
+  margin-bottom: 10%;
   background-color: #f3f3f3;
   border: none;
 }
