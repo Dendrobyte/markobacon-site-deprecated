@@ -3,6 +3,7 @@ import './PostMarkdown.css';
 
 // Component that takes text, parses for symbols, and returns a component that consists of properly sized text
 function textToMarkdown(bodyText){
+
     // Turn the post text into "readable" text here
     let marker = '@';
     //bodyText = PostAssistant.decodeText(bodyText)

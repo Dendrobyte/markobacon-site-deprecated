@@ -47,7 +47,7 @@ function BlogPost(props) {
                     <div className="blogPostTimestamp">{convertUnixToTimestamp(props.dateInUnix)}</div>
                 </div>
                 <div className="blogPostContent">
-                    {MarkdownFormatter.textToMarkdown(blogPostBody)}
+                    {/*MarkdownFormatter.textToMarkdown(blogPostBody) HOTFIX: */ PostAssistant.decodeText(blogPostBody)}
                 </div>
                 <span className="blogPostExpand" onClick = {() => onReadMoreClick()}>{readMoreTag}</span> { /* TODO: Switch it when it toggles (make this a function) */ }
             </div>
