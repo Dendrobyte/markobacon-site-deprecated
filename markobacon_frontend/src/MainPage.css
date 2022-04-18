@@ -2,6 +2,7 @@
 html {
   background-color: #f3f3f3;
 }
+
 .pageContainer {
   width: 60%;
   margin: auto;
@@ -43,7 +44,7 @@ html {
 
 .sectionTopLeft {
   width: 70%;
-  float:left;
+  float: left;
 }
 
 .profPic {
@@ -78,6 +79,7 @@ html {
   padding: 40px 0px 0px 0px;
   border-top: 2px ridge rgb(206, 206, 206, .4);
 }
+
 .sectionBottomThird {
   width: calc(97% / 3);
   display: inline-block;
@@ -98,20 +100,15 @@ html {
   margin-top: 10px;
 
 }
+
 /* Skills */
-.sectionBottomThirdSkills {
-  
-}
+.sectionBottomThirdSkills {}
 
 /* Projects */
-.sectionBottomThirdProjects {
-  
-}
+.sectionBottomThirdProjects {}
 
 /* External Links */
-.sectionBottomThirdExternal {
-  
-}
+.sectionBottomThirdExternal {}
 
 /* Progress Bars */
 /* TODO: Can these be turned into something a little more... dynamic...? */
@@ -189,7 +186,7 @@ ul {
   }
 }
 
-/* CSS Animations */ 
+/* CSS Animations */
 
 /* TODO: Animation to fill bars for skills */
 @keyframes fillBar {

@@ -1,4 +1,4 @@
-import './shibe_styles.css';
+import './shibestyles.css';
 
 function ShibeCard(props) {
     let imageUrl = props.src;

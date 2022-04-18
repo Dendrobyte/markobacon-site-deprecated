@@ -1,12 +1,11 @@
 import axios from 'axios';
-import { response } from 'express';
-import { useState, state, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import ShibeCard from './ShibeCard';
-import './shibe_styles.css';
+import './shibestyles.css';
 
 function ShibeHomepage() {
     // Respective API calls
-    const shibeBaseUrl = "http://shibe.online/api/shibes";
+    const shibeBaseUrl = "https://shibe.online/api/shibes?urls=true&httpsUrls=true";
     const quoteUrl = "https://quotable.io/quotes?page=1";
     
     const[shibeCardArr, setShibaCardArr] = useState('')
@@ -15,15 +14,21 @@ function ShibeHomepage() {
 
 
     async function getShibeImages() {
-        axios.get(`${shibeBaseUrl}?count=${count}`)
+        /*axios.get(`${shibeBaseUrl}&count=${count}`, {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*"
+            })
         .then(response => 
             response.json())
         .then((response) => {
+            console.log(response)
             return response;
         })
         .catch(err => 
             console.log("Error retreiving shibe images: " + err));
             return null;
+            */
+           
     }
 
     async function getQuotes(){
@@ -31,16 +36,13 @@ function ShibeHomepage() {
         .then((response) => {
             return response.json();
         })
-        .then(() => {
-            return response.results
-        })
     }
 
     let summonShibe = (e) => {
         if (count >= 6) {
             alert("You can't have all the Shibes to yourself!")
             setSummonText("Don't Hoard")
-            e.clickable = false;
+            e.clickable = "false";
             return
         }
         else if (count > 3) {
@@ -67,24 +69,16 @@ function ShibeHomepage() {
 
     return <>
         <div className="container">
+            <p>Hi</p>
             <div className="cards">
                 {
-                    shibeCardArr.forEach((card) =>{
-                        return card;
-                    })
-                    /*
-                    shibeCardArr.map((item, index) => {
-                        (
-                            <ShibeCard imageUrl={imageUrl} quote={quoteArray[acc.length]} />
-                        )
-                    })
-                    */
+                    shibeCardArr
                 }
             </div>
 
             <div className="buttons">
-                <button className="buttonSummon" onClick={summonShibe}></button>
-                <button className="buttonTagout" clickable={true} onClick={tagOut}>Regenerate Shibes</button>
+                <button className="buttonSummon" onClick={summonShibe}>{ summonText }</button>
+                <button className="buttonTagout" clickable="true" onClick={tagOut}>Regenerate Shibes</button>
             </div>
         </div>
     </>
