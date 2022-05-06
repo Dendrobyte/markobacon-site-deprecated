@@ -1,6 +1,6 @@
-import './shibestyles.css';
+import './shibastyles.css';
 
-function ShibeCard(props) {
+function ShibaCard(props) {
     let imageUrl = props.src;
     let quote = props.quote;
 
@@ -9,7 +9,7 @@ function ShibeCard(props) {
             <div className="card-title">
                 <p>Card Title</p>
             </div>
-            <img className="card-image" src={imageUrl} alt="Your generated shibe here."></img>
+            <img className="card-image" src={imageUrl} alt="Your generated shiba here."></img>
             <div className="card-quote">
                 <p>{ quote }</p>
             </div>
@@ -17,4 +17,4 @@ function ShibeCard(props) {
     </>
 }
 
-export default ShibeCard;
+export default ShibaCard;
