@@ -84,23 +84,29 @@ function ShibaHomepage() {
 
     // Whenever the count is updated, we'll get a new shiba image
     useEffect(() => {
-        let shibaImageArray = updateShibaImages()
-        let quoteArray = getQuotes()
+        updateShibaImages()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [count])
 
-        let cardArr = shibaImageArray.reduce((acc, imageUrl) => {
-            acc.push(<ShibaCard imageUrl={imageUrl} quote={quoteArray[acc.length]} />);
+    // And then, whenever the images are updated (since we're working with state variables) add the component
+    // TODO: I can't help but feel like this got complicated. Welp.
+    useEffect(() => {
+        let quotes = getQuotes()
+        let cardArr = shibaImgArr.reduce((acc, imageUrl) => {
+            acc.push({ imageUrl: imageUrl, quote: quotes[acc.length]});
             return acc;
         }, [])
         setShibaCardArr(cardArr);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [count])
+    }, [shibaImgArr])
 
     return <>
         <div className="container">
             <p>Hi</p>
             <div className="cards">
                 {
-                    shibaCardArr
+                    shibaCardArr.map(({ imgUrl, quote}, idx) => {
+                        <ShibaCard key={idx} imgUrl={imgUrl} quote={quote} />
+                    })
                 }
             </div>
 
