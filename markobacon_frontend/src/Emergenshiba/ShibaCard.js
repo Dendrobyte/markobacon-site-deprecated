@@ -1,15 +1,13 @@
 import './shibastyles.css';
 
-function ShibaCard(props) {
-    let imageUrl = props.src;
-    let quote = props.quote;
+function ShibaCard({ imgUrl, quote}) {
 
     return<>
         <div className="card-container">
             <div className="card-title">
                 <p>Card Title</p>
             </div>
-            <img className="card-image" src={imageUrl} alt="Your generated shiba here."></img>
+            <img className="card-image" src={imgUrl} alt="Your generated shiba here."></img>
             <div className="card-quote">
                 <p>{ quote }</p>
             </div>

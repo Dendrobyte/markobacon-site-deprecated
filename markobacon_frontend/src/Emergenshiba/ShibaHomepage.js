@@ -3,58 +3,46 @@ import { useState, useEffect } from 'react';
 import ShibaCard from './ShibaCard';
 import './shibastyles.css';
 
-let fs = require('fs')
-const imgBase = './shibas/'
-const imgDir = fs.readdirSync('./shibas')
+// let fs = require('fs')
+// const imgBase = './shibas/'
+// const imgDir = fs.readdirSync('./shibas')
 
 function ShibaHomepage() {
     // Respective API calls
-    const shibaBaseUrl = "https://shiba.online/api/shibas?urls=true&httpsUrls=true";
+    const shibaBaseUrl = "https://dog.ceo/api/breed/shiba/images" // "http://shibe.online/api/shibes?count=1";
     const quoteUrl = "https://quotable.io/quotes?page=1";
     
-    const[shibaCardArr, setShibaCardArr] = useState('')
+    const[shibaCardArr, setShibaCardArr] = useState([])
     const[shibaImgArr, setShibaImgArr] = useState([])
     const[count, setCount] = useState(1);
     const[summonText, setSummonText] = useState('Summon Another Shiba');
 
-    // Get list of shiba images. Helper function to keep things a little clean
-    const getShibaImageList = async() => { 
-        let resultArr = []
-        imgDir.forEach(img => {
-            console.log(img)
-        })
-    }
-
     // Get a new random shiba image and add it to the shiba img array
-    async function updateShibaImages() {
-        let imgArrSize = imgDir.length
-        let randImgNum = Math.floor(Math.count * imgArrSize)-1
-        let found = false
-        while (found === false) {
-            let newImgPath = imgBase + imgDir[randImgNum]
-            if (!shibaImgArr.includes(newImgPath)) {
-                setShibaImgArr(...shibaImgArr, newImgPath)
-                found = true // This will be fine..... right.....
-            }
-        }
+    // TODO: So you only have to make one call for both shibas and quotes, hold on to six results and show/hide only a certain number
+    async function getShibaImage() {
 
-        /*axios.get(`${shibaBaseUrl}&count=${count}`, {
+        axios.get(shibaBaseUrl, {
             "Content-Type": "application/json",
             "Access-Control-Allow-Origin": "*"
             })
-        .then(response => 
-            response.json())
-        .then((response) => {
-            console.log(response)
-            return response;
+        .then((response) => { // Shibe API may need an intermediate response.json() call?
+            // For the dog API because it returns 19 dogs
+            let resLen = response.data.message.length
+            let randDogNum = Math.floor(Math.random() * resLen-1)
+
+            // TODO: Change this if/when you're able to pull from the shibe.online api
+            let newImgUrl = response.data.message[randDogNum]
+            setShibaImgArr([...shibaImgArr, newImgUrl])
+            return;
         })
         .catch(err => 
             console.log("Error retreiving shiba images: " + err));
-            return null;
-            */
-           
+            return;
+
     }
 
+    // Retrieve the quotes
+    // TODO: Implement this bad boi
     const getQuotes = () => {
         return ['To be or not to be', 'that is the question', 'tis nobler in the mind to suffer', 'the slings and arrows of outrageous fortune', 'to die to sleep', 'for in that sleep of death what dreams may come']
 
@@ -79,12 +67,12 @@ function ShibaHomepage() {
     }
 
     let tagOut = () => {
-        updateShibaImages()
+        getShibaImage()
     }
 
     // Whenever the count is updated, we'll get a new shiba image
     useEffect(() => {
-        updateShibaImages()
+        getShibaImage()
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [count])
 
@@ -92,8 +80,9 @@ function ShibaHomepage() {
     // TODO: I can't help but feel like this got complicated. Welp.
     useEffect(() => {
         let quotes = getQuotes()
-        let cardArr = shibaImgArr.reduce((acc, imageUrl) => {
-            acc.push({ imageUrl: imageUrl, quote: quotes[acc.length]});
+        if (shibaImgArr.length === 0) return
+        let cardArr = shibaImgArr.reduce((acc, imgUrl) => {
+            acc.push({ imgUrl: imgUrl, quote: quotes[acc.length]});
             return acc;
         }, [])
         setShibaCardArr(cardArr);
@@ -105,7 +94,8 @@ function ShibaHomepage() {
             <div className="cards">
                 {
                     shibaCardArr.map(({ imgUrl, quote}, idx) => {
-                        <ShibaCard key={idx} imgUrl={imgUrl} quote={quote} />
+                        console.log(imgUrl)
+                        return <ShibaCard key={idx} imgUrl={imgUrl} quote={quote} />
                     })
                 }
             </div>
