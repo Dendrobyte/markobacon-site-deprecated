@@ -1,13 +1,20 @@
-/* Homepage Styles */
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+/* Reset Stuff */
+html,
+body {
     background-color: white;
 }
 
-.cards {
-    order: 1;
+/* Homepage Styles */
+.container {
+    background-color: red;
+}
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 80%;
+    margin: 1% auto 0 auto;
 }
 
 .buttons {}
@@ -17,16 +24,16 @@
 .buttonTagout {}
 
 /* Card Styles */
-.card-container {
-    width: 200px;
-    height: 600px;
-    border-radius: 20%;
+.card-single {
+    border-radius: 25px;
     box-shadow: 0.5px -5px 10px .2;
     margin: 10px;
+    background-color: antiquewhite;
+    height: 100%;
+    width: 31%;
 }
 
 .card-title {
-    background-color: antiquewhite;
     text-align: center;
     font-size: 24px;
     padding: 10px;
@@ -34,11 +41,11 @@
 }
 
 .card-image {
-    width: 100%;
+    height: 200px;
+    widht: 300px;
 }
 
 .card-quote {
-    background-color: antiquewhite;
     text-align: left;
     font-size: 14px;
     color: rgba(5, 4, 50, 0.975);

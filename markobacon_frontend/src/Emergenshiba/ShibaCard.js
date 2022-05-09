@@ -3,7 +3,7 @@ import './shibastyles.css';
 function ShibaCard({ imgUrl, quote}) {
 
     return<>
-        <div className="card-container">
+        <div className="card-single">
             <div className="card-title">
                 <p>Card Title</p>
             </div>

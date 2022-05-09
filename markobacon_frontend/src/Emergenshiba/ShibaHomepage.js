@@ -14,7 +14,7 @@ function ShibaHomepage() {
     
     const[shibaCardArr, setShibaCardArr] = useState([])
     const[shibaImgArr, setShibaImgArr] = useState([])
-    const[count, setCount] = useState(1);
+    const[count, setCount] = useState(2);
     const[summonText, setSummonText] = useState('Summon Another Shiba');
 
     // Get a new random shiba image and add it to the shiba img array
@@ -28,10 +28,18 @@ function ShibaHomepage() {
         .then((response) => { // Shibe API may need an intermediate response.json() call?
             // For the dog API because it returns 19 dogs
             let resLen = response.data.message.length
-            let randDogNum = Math.floor(Math.random() * resLen-1)
+            let randDogNum = Math.floor(Math.random() * resLen)
 
             // TODO: Change this if/when you're able to pull from the shibe.online api
+            let counter = 0 // Just in case luck is truly not on our side
             let newImgUrl = response.data.message[randDogNum]
+            while(shibaImgArr.includes(newImgUrl) && counter <= 10) {
+                // Find one we don't have
+                randDogNum = Math.floor(Math.random() * resLen)
+                newImgUrl = response.data.message[randDogNum]
+                counter++
+            }
+            
             setShibaImgArr([...shibaImgArr, newImgUrl])
             return;
         })
@@ -54,7 +62,8 @@ function ShibaHomepage() {
 
     // Function to trigger when the summon shiba button is clicked
     let summonShiba = (e) => {
-        if (count >= 6) {
+        
+        if (count > 6) {
             alert("You can't have all the shibas to yourself!")
             setSummonText("Don't Hoard")
             e.clickable = "false";
@@ -90,8 +99,7 @@ function ShibaHomepage() {
 
     return <>
         <div className="container">
-            <p>Hi</p>
-            <div className="cards">
+            <div className="cards-container">
                 {
                     shibaCardArr.map(({ imgUrl, quote}, idx) => {
                         console.log(imgUrl)
