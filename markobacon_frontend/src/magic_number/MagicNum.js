@@ -18,7 +18,7 @@
 */
 
 import { useState } from "react"
-const bcrypt = require('bcrypt');
+import bcrypt from 'bcrypt';
 
 // TODO: I need to hit a backend or something
 
