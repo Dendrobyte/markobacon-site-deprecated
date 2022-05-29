@@ -1,5 +1,4 @@
 import profPic from "./img/profPic.png";
-//import bannerPic from "./img/bannerPic.jpg";
 import "./MainPage.css";
 import ProgBar from "./ProgBar";
 
@@ -21,6 +20,13 @@ function MainPage() {
             Stay updated with my latest existential crises on <b><a href="/markside">my blog, Markside</a></b>
             {" "}and with my latest projects and ideas on <b><a href="http://www.youtube.com/markbacon78">YouTube</a></b> (weekly!){" "}
             <i>This site is an ongoing learning endeavor, written with React JS. </i>
+          </div>
+          <hr></hr>
+          <div className="infoText">
+            Some of this website's little tools.
+            <ul>
+              <li className="toolsItem">I need a <a href="/emergenshiba">shiba</a></li>
+            </ul>
           </div>
         </div>
         <img src={profPic} className="profPic" alt="Mark Headshot"></img>
