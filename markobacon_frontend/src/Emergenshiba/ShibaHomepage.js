@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import { useMediaQuery } from 'react-responsive'
 import ShibaCard from './ShibaCard';
 import './shibastyles.css';
 import config from './config.json'
@@ -108,16 +109,21 @@ function ShibaHomepage() {
         setShibaCardArr(cardArr);
     }, [quotes])
 
+
+    // Check if we're on a mobile device or something
+    const isMobile = useMediaQuery({ query: '(max-width: 480px)' })
+
     return <>
         <div className="container">
             <div className="page-title">
                 <h1 className="page-title-title">Emergen-shiba</h1>
                 <p className="page-title-subtitle">For when you need motivation in a pinch <i className="smallText">(it's like emergenCY but SHIba... get it?!)</i></p>
             </div>
-            <div className="cards-container">
+
+            <div className={isMobile ? "cards-container-mobile" : "cards-container"}>
                 {
                     shibaCardArr.map(({ title, imgUrl, quote}, idx) => {
-                        return <ShibaCard key={idx} title={title} imgUrl={imgUrl} quote={quote} />
+                        return <ShibaCard key={idx} title={title} imgUrl={imgUrl} quote={quote} mobile={isMobile} />
                     })
                 }
             </div>

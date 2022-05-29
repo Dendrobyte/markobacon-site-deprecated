@@ -1,9 +1,9 @@
 import './shibastyles.css';
 
-function ShibaCard({ title, imgUrl, quote}) {
+function ShibaCard({ title, imgUrl, quote, mobile}) {
 
     return<>
-        <div className="card-single">
+        <div className={mobile ? "card-single-mobile" : "card-single"}>
             <div className="card-title">
                 <p>{title}</p>
             </div>
