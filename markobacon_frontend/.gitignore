@@ -25,3 +25,5 @@ yarn-error.log*
 
 # secret
 /src/magic_number/config.json
+# emergenshiba ignores
+/src/Emergenshiba/config.json
