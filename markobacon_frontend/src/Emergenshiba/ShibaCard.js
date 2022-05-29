@@ -1,15 +1,16 @@
 import './shibastyles.css';
 
-function ShibaCard({ imgUrl, quote}) {
+function ShibaCard({ title, imgUrl, quote}) {
 
     return<>
         <div className="card-single">
             <div className="card-title">
-                <p>Card Title</p>
+                <p>{title}</p>
             </div>
-            <img className="card-image" src={imgUrl} alt="Your generated shiba here."></img>
-            <div className="card-quote">
-                <p>{ quote }</p>
+            <img className="card-image" src={imgUrl} alt="Requesting shiba...."></img>
+            <div className="card-quote-container">
+                <p className="card-quote-content">{ quote.quote }</p>
+                <p className="card-quote-author">- {quote.author }</p>
             </div>
         </div>
     </>

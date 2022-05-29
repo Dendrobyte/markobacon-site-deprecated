@@ -24,4 +24,4 @@ yarn-debug.log*
 yarn-error.log*
 
 # emergenshiba ignores
-/src/Emergenshiba/shibas/
+/src/Emergenshiba/config.json

@@ -1,5 +1,5 @@
 '''
-Image credit goes to shibe.online -- Due to CORS, I wasn't able to make requests to the API so I've done this (with images ignored)
+Image credit goes to shibe.online -- This was written when CORS wasn't working but we're good now.
 
 How the script works is up to you to reverse engineer, as the sources I will not include.
 '''
