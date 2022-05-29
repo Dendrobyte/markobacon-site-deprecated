@@ -9,7 +9,7 @@ import './shibastyles.css';
 
 function ShibaHomepage() {
     // Respective API calls
-    const shibaBaseUrl = "https://dog.ceo/api/breed/shiba/images" // "http://shibe.online/api/shibes?count=1";
+    const shibaBaseUrl = "http://shibe.online/api/shibes?count=20";
     const quoteUrl = "https://quotable.io/quotes?page=1";
     
     const[shibaCardArr, setShibaCardArr] = useState([])
@@ -25,14 +25,14 @@ function ShibaHomepage() {
             "Content-Type": "application/json",
             "Access-Control-Allow-Origin": "*"
             })
-        .then((response) => { // Shibe API may need an intermediate response.json() call?
-            // For the dog API because it returns 19 dogs
-            let resLen = response.data.message.length
+        .then((response) => {
+            // Query a bunch of dogs in case we get unlucky with the randomness
+            let resLen = response.data.length
             let randDogNum = Math.floor(Math.random() * resLen)
 
-            // TODO: Change this if/when you're able to pull from the shibe.online api
             let counter = 0 // Just in case luck is truly not on our side
-            let newImgUrl = response.data.message[randDogNum]
+            let newImgUrl = response.data[randDogNum]
+            console.log(newImgUrl)
             while(shibaImgArr.includes(newImgUrl) && counter <= 10) {
                 // Find one we don't have
                 randDogNum = Math.floor(Math.random() * resLen)
