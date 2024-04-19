@@ -2,7 +2,7 @@
 
 You can find me here: https://www.markobacon.com/
 
-This is the old repository of post-graduation development! The new/current site's repository can be found [here](http://www.githube.com/Dendrobyte/markside).
+This is the old repository of post-graduation development! The new/current site's repository can be found [here](http://www.github.com/Dendrobyte/markside).
 
 ## Note on organization
 
