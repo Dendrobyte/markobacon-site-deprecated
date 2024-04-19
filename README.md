@@ -2,6 +2,8 @@
 
 You can find me here: https://www.markobacon.com/
 
+This is the old repository of post-graduation development! The new/current site's repository can be found [here](http://www.githube.com/Dendrobyte/markside).
+
 ## Note on organization
 
 Hello! Thanks for dropping by. Because I like things organized in particular ways, my portfolio site repository is currently sorted into a [frontend folder](/Markobacon_Frontend) and a [backend folder](/Markobacon_Backend). This makes deployment processes a bit easier (I just run the backend if I deploy it, and I only deploy built versions of the front-end to my site host). 
